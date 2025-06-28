@@ -1,5 +1,5 @@
 
-const { Planet } = require('../models/index.js')
+const { Planet, Star } = require('../models/index.js')
 
 
 
@@ -15,7 +15,9 @@ const index = async (req, res) => {
 const show = async (req, res) => {
   // Respond with a single object and 2xx code
   //res.status(200).json(`Planet#show(:id)`)
-  const planet = await Planet.findByPk(req.params.id)
+  const planet = await Planet.findByPk(req.params.id, {
+    include: Star
+  })
   res.status(200).json(planet)
 }
 
