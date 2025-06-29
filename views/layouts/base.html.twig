@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>{% block page_title %}ASL - TwigBase{%endblock%}</title>
+        <style type="text/css">
+            table, th, td {
+                border: 1px solid black;
+                
+            }
+        </style>
+    </head>
+
+    <body>
+
+        {% include "partials/_header.html.twig" %} 
+       
+        <main id="app">
+            {% block app%}
+            {% endblock%}
+        </main>
+
+        {% include "partials/_footer.html.twig" %}
+
+        {% block scripts%}
+        {% endblock%}
+    </body>
+</html>

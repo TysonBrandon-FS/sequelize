@@ -7,6 +7,12 @@ const app           = express()
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded())
 
+const twig = require('twig')
+const path = require('path')
+
+app.set('view engine', 'twig')
+app.set('views', path.join(__dirname, './views'))
+
 // Load in our RESTful routers
 const routers = require('./routers/index.js')
 

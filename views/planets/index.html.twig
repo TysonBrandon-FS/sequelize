@@ -1,0 +1,39 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block page_title %}View all Planets{%endblock%}
+
+{%block app%}
+
+<h1>View All Planets</h1>
+
+<table>
+    <thead>
+        <tr>
+            <td>ID#</td>
+            <td>Name</td>
+            <td>Size</td>
+            <td>Description</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for planet in planets %}
+        <tr>
+            <td>{{planet.id}}</td>
+            <td>{{planet.name}}</td>
+            <td>{{planet.mass}}</td>
+            <td>{{planet.description ? planet.description : "N/A"}}</td>
+            <td>
+                <a href="/planets/{{planet.id}}">View</a> 
+                |
+                <a href="/planets/{{planet.id}}/edit">Edit</a>
+                |
+                <a href="/planets/{{planet.id}}/delete">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{%endblock%}

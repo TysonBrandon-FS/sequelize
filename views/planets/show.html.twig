@@ -1,0 +1,22 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block page_title %}View {{planet.name}} {%endblock%}
+
+{%block app%}
+
+<h1> View {{planet.name}} </h1>
+
+<ul>
+    <li><label>ID:</label> {{planet.id}}</li>
+    <li><label>Name:</label> {{planet.name}}</li>
+    <li><label>Size:</label> {{planet.mass}}</li>
+    <li><label>Description:</label> {{planet.description ? planet.description : "N/A"}}</li>
+</ul>
+
+
+<p>
+    <a href="/planets/{{planet.id}}/edit">Edit</a>
+    <a href="/planets/{{planet.id}}/delete">Remove</a>
+</p>
+
+{%endblock%}

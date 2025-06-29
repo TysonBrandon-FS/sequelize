@@ -4,8 +4,19 @@ const { Galaxy } = require('../models/index.js')
 const index = async (req, res) => {
   // Respond with an array and 2xx status code
   //res.status(200).json([`Galaxy#index`])
-  const galaxy = await Galaxy.findAll()
-  res.status(200).json(galaxy)
+  //const galaxy = await Galaxy.findAll()
+  //res.status(200).json(galaxy)
+  res.render('index.html.twig', {
+    name: 'Brandon',
+    people: [
+      {name: 'Brandon Miller', age: 30},
+      {name: 'John Doe', age: 25},
+      {name: 'Jane Smith', age: 20},
+      {name: 'Jim Beam', age: 35},
+      {name: 'Jill Johnson', age: 32}
+    ],
+    active: true
+  })
 }
 
 // Show resource
