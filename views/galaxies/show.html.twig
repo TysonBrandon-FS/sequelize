@@ -1,0 +1,25 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block page_title %}View {{galaxy.name}} {%endblock%}
+
+{%block app%}
+
+<h1> View {{galaxy.name}} </h1>
+
+<ul>
+    <li><label>ID:</label> {{galaxy.id}}</li>
+    <li><label>Name:</label> {{galaxy.name}}</li>
+    <li><label>Size:</label> {{galaxy.size}}</li>
+    <li><label>Description:</label> {{galaxy.description ? galaxy.description : "N/A"}}</li>
+</ul>
+
+{% if galaxy.imageUrl %}
+<img src="{{galaxy.imageUrl}}" alt="{{galaxy.name}}" style="width: 400px; height: 400px; object-fit: cover;">
+{% endif %}
+
+<p>
+    <a href="/galaxies/{{galaxy.id}}/edit">Edit</a>
+    <a href="/galaxies/{{galaxy.id}}/delete">Remove</a>
+</p>
+
+{%endblock%}

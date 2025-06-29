@@ -6,6 +6,10 @@
 
 <h1> View {{planet.name}} </h1>
 
+{% if planet.image_url %}
+    <img src="{{planet.image_url}}" alt="{{planet.name}}" style="width: 400px; height: 400px; object-fit: cover;">
+{% endif %}
+
 <ul>
     <li><label>ID:</label> {{planet.id}}</li>
     <li><label>Name:</label> {{planet.name}}</li>

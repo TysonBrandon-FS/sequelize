@@ -1,0 +1,50 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block page_title %}
+{% if star.id is defined and star.id > 0 %}
+Edit {{star.name}}
+{% else %}
+Create New Star
+{%endif%}
+{%endblock%}
+
+{%block app%}
+
+<h1> 
+{% if star.id is defined and star.id > 0 %}
+Edit {{star.name}}
+{% else %}
+Create New Star
+{%endif%}
+</h1>
+
+{% if star.id is defined and star.id > 0 %}
+<form method="POST" action="/stars/{{star.id}}">
+{% else %}
+<form method="POST" action="/stars">
+{%endif%}
+
+<div class="control">
+    <label>Name:</label>
+    <input type="text" value="{{star.name}}" name="name">
+</div>
+
+<div class="control">
+    <label>Size:</label>
+    <input type="text" value="{{star.size}}" name="size">
+</div>
+
+<div class="control">
+    <label>Description:</label>
+    <input type="text" value="{{star.description}}" name="description">
+</div>
+
+<div class="control">
+    <label>Image URL:</label>
+    <input type="text" value="{{star.image_url}}" name="image_url">
+</div>
+
+<button type="submit">Click to Save</button>
+</form>
+
+{%endblock%} 

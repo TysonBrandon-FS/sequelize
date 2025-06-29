@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     mass: DataTypes.INTEGER,
     hasRings: DataTypes.BOOLEAN,
     description: DataTypes.STRING,
-    starId: DataTypes.INTEGER
+    starId: DataTypes.INTEGER,
+    image_url: DataTypes.TEXT,
   }, {
     sequelize,
     modelName: 'Planet',

@@ -1,0 +1,49 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block page_title %}View all Galaxies{%endblock%}
+
+{%block app%}
+
+<h1>View All Galaxies</h1>
+
+<table>
+    <thead>
+        <tr>
+            <td>ID#</td>
+            <td>Name</td>
+            <td>Size</td>
+            <td>Description</td>
+            <td>Image</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for galaxy in galaxy %}
+        <tr>
+            <td>{{galaxy.id}}</td>
+            <td>{{galaxy.name}}</td>
+            <td>{{galaxy.size}}</td>
+            <td>{{galaxy.description ? galaxy.description : "N/A"}}</td>
+            <td>
+                {% if galaxy.image_url %}
+                <img src="{{galaxy.image_url}}" alt="{{galaxy.name}}" style="width: 100px; height: 100px; object-fit: cover;">
+                {% else %}
+                No Image
+                {% endif %}
+            </td>
+            <td>
+                <a href="/galaxies/{{galaxy.id}}">View</a> 
+                |
+                <a href="/galaxies/{{galaxy.id}}/edit">Edit</a>
+                |
+                <a href="/galaxies/{{galaxy.id}}/delete">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<p><a href="/galaxies/new">Create New Galaxy</a></p>
+
+{%endblock%}  
