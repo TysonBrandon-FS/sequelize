@@ -26,8 +26,8 @@
             <td>{{star.size}}</td>
             <td>{{star.description ? star.description : "N/A"}}</td>
             <td>
-                {% if star.imageUrl %}
-                <img src="{{star.imageUrl}}" alt="{{star.name}}" style="width: 100px; height: 100px; object-fit: cover;">
+                {% if star.image_url %}
+                <img src="{{star.image_url}}" alt="{{star.name}}" style="width: 100px; height: 100px; object-fit: cover;">
                 {% else %}
                 No Image
                 {% endif %}
